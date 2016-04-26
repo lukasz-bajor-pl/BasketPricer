@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by lbajor on 2016-04-27.
  */
-public class BasketPricerFeatureTest {
+public class BasketPricerIntegrationTest {
     ItemPricer pricer = new SimpleItemPricer();
     BasketPricer basketPricer = new SimpleBasketPricer(pricer);
 
