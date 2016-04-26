@@ -1,10 +1,9 @@
 package bajor.lukasz.basketpricer;
 
-import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-
+import static bajor.lukasz.basketpricer.Item.Apple;
+import static java.math.BigDecimal.ZERO;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -16,11 +15,11 @@ public class SimpleItemPricerShould {
 
     @Test
     public void return0IfQuantityIs0() {
-        assertThat(pricer.getPrice(Item.Apple, 0), equalTo(BigDecimal.ZERO));
+        assertThat(pricer.getPrice(Apple, 0), equalTo(ZERO));
     }
 
     @Test
     public void returnItemUnitPriceIfQuantityIs1() {
-        assertThat(pricer.getPrice(Item.Apple, 1), equalTo(Item.Apple.price));
+        assertThat(pricer.getPrice(Apple, 1), equalTo(Apple.price));
     }
 }
