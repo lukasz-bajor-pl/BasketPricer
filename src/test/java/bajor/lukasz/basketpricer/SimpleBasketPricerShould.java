@@ -1,8 +1,5 @@
 package bajor.lukasz.basketpricer;
 
-import bajor.lukasz.basketpricer.BasketImpl;
-import bajor.lukasz.basketpricer.BasketPricer;
-import bajor.lukasz.basketpricer.SimpleBasketPricer;
 import org.junit.Before;
 import org.junit.Test;
 
