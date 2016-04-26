@@ -8,6 +8,6 @@ import java.math.BigDecimal;
 public class SimpleBasketPricer implements BasketPricer {
     @Override
     public BigDecimal getPrice(Basket basket) {
-        return null;
+        return BigDecimal.ZERO;
     }
 }
