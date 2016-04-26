@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 import static bajor.lukasz.basketpricer.Item.Apple;
+import static bajor.lukasz.basketpricer.Item.Banana;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -29,5 +30,11 @@ public class SimpleBasketPricerShould {
     public void returnUnitPriceOfApple() {
         BasketImpl basket = new BasketImpl(Apple);
         assertThat(basketPricer.getPrice(basket), equalTo(Apple.price));
+    }
+
+    @Test
+    public void returnSumOfUnitPricesOfApplesAndBananas() {
+        BasketImpl basket = new BasketImpl(Apple, Apple, Banana);
+        assertThat(basketPricer.getPrice(basket), equalTo(Apple.price.multiply(new BigDecimal(2)).add(Banana.price)));
     }
 }
