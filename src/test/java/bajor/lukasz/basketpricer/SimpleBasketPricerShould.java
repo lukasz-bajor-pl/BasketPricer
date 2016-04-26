@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.equalTo;
  * Created by lbajor on 2016-04-26.
  */
 public class SimpleBasketPricerShould {
-    BasketPricer basketPricer;
+    SimpleBasketPricer basketPricer;
 
     @Before
     public void beforeTests() {
