@@ -14,6 +14,6 @@ public class SimpleItemPricer implements ItemPricer {
             return ZERO;
         }
 
-        return item.price;
+        return item.price.multiply(new BigDecimal(quantity));
     }
 }
