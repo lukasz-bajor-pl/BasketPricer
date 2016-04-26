@@ -6,14 +6,12 @@ import java.math.BigDecimal;
  * Created by lbajor on 2016-04-26.
  */
 public enum Item {
-    Apple {
-        private final BigDecimal price = BigDecimal.valueOf(35, 2);
+    Apple(BigDecimal.valueOf(35, 2)),
+    Banana(BigDecimal.valueOf(20, 2));
 
-        @Override
-        public BigDecimal getPrice() {
-            return price;
-        }
-    };
+    public final BigDecimal price;
 
-    public abstract BigDecimal getPrice();
+    private Item(final BigDecimal price) {
+        this.price = price;
+    }
 }

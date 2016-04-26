@@ -31,6 +31,6 @@ public class SimpleBasketPricerShould {
     @Test
     public void returnUnitPriceOfApple() {
         BasketImpl basket = new BasketImpl(Apple);
-        assertThat(basketPricer.getPrice(basket), equalTo(Apple.getPrice()));
+        assertThat(basketPricer.getPrice(basket), equalTo(Apple.price));
     }
 }
