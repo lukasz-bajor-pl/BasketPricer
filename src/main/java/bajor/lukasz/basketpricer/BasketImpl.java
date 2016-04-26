@@ -18,6 +18,9 @@ public class BasketImpl implements Basket {
     }
 
     public BasketImpl(Item... items) {
+        for (Item i: items) {
+            this.items.merge(i, 1L, (prevVal, newVal) -> prevVal + newVal);
+        }
     }
 
     @Override
