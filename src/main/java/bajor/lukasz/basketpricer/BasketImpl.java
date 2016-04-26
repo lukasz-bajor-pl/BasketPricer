@@ -1,5 +1,6 @@
 package bajor.lukasz.basketpricer;
 
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -12,6 +13,6 @@ public class BasketImpl implements Basket {
 
     @Override
     public Map<Item, Long> getItems() {
-        return null;
+        return Collections.emptyMap();
     }
 }
