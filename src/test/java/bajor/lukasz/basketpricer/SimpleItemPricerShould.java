@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -15,6 +16,6 @@ public class SimpleItemPricerShould {
 
     @Test
     public void return0IfQuantityIs0() {
-        assertThat(pricer.getPrice(Item.Apple, 0), Matchers.equalTo(BigDecimal.ZERO));
+        assertThat(pricer.getPrice(Item.Apple, 0), equalTo(BigDecimal.ZERO));
     }
 }
