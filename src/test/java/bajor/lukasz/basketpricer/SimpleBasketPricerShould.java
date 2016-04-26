@@ -1,3 +1,5 @@
+package bajor.lukasz.basketpricer;
+
 import bajor.lukasz.basketpricer.BasketImpl;
 import bajor.lukasz.basketpricer.BasketPricer;
 import bajor.lukasz.basketpricer.SimpleBasketPricer;
@@ -12,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 /**
  * Created by lbajor on 2016-04-26.
  */
-public class BasketPricerShould {
+public class SimpleBasketPricerShould {
     BasketPricer basketPricer;
 
     @Before
