@@ -7,7 +7,9 @@ import java.math.BigDecimal;
  */
 public enum Item {
     Apple(BigDecimal.valueOf(35, 2)),
-    Banana(BigDecimal.valueOf(20, 2));
+    Banana(BigDecimal.valueOf(20, 2)),
+    Melon(BigDecimal.valueOf(50, 2)),
+    Lime(BigDecimal.valueOf(15, 2));
 
     public final BigDecimal price;
 
