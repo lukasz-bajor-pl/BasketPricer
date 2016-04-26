@@ -25,4 +25,11 @@ public class BasketImplShould {
         assertThat(items.keySet(), hasSize(1));
         assertThat(items, hasEntry(Apple, 1L));
     }
+
+    @Test
+    public void returnTwoItemsFromTwoApplesBasket() {
+        Map<Item, Long> items = new BasketImpl(Apple, Apple).getItems();
+        assertThat(items.keySet(), hasSize(1));
+        assertThat(items, hasEntry(Apple, 2L));
+    }
 }

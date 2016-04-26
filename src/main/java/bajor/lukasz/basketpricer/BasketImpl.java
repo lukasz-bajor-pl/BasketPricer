@@ -17,6 +17,9 @@ public class BasketImpl implements Basket {
         this.items.put(item, 1L);
     }
 
+    public BasketImpl(Item... items) {
+    }
+
     @Override
     public Map<Item, Long> getItems() {
         return Collections.unmodifiableMap(items);
