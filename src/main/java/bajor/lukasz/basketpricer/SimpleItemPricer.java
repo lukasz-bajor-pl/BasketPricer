@@ -8,6 +8,6 @@ import java.math.BigDecimal;
 public class SimpleItemPricer implements ItemPricer {
     @Override
     public BigDecimal getPrice(Item item, long quantity) {
-        return null;
+        return BigDecimal.ZERO;
     }
 }

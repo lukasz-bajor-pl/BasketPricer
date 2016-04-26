@@ -3,6 +3,8 @@ package bajor.lukasz.basketpricer;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertThat;
 
 /**
@@ -13,6 +15,6 @@ public class SimpleItemPricerShould {
 
     @Test
     public void return0IfQuantityIs0() {
-        assertThat(pricer.getPrice(Item.Apple, 0), Matchers.equalTo(0));
+        assertThat(pricer.getPrice(Item.Apple, 0), Matchers.equalTo(BigDecimal.ZERO));
     }
 }
