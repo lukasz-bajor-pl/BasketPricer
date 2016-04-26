@@ -18,4 +18,9 @@ public class SimpleItemPricerShould {
     public void return0IfQuantityIs0() {
         assertThat(pricer.getPrice(Item.Apple, 0), equalTo(BigDecimal.ZERO));
     }
+
+    @Test
+    public void returnItemUnitPriceIfQuantityIs1() {
+        assertThat(pricer.getPrice(Item.Apple, 1), equalTo(Item.Apple.price));
+    }
 }
