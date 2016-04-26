@@ -1,18 +1,24 @@
 package bajor.lukasz.basketpricer;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lbajor on 2016-04-26.
  */
 public class BasketImpl implements Basket {
-    public BasketImpl(Item... items) {
+    private final Map<Item, Long> items = new HashMap<>();
 
+    public BasketImpl() {
+    }
+
+    public BasketImpl(Item item) {
+        this.items.put(item, 1L);
     }
 
     @Override
     public Map<Item, Long> getItems() {
-        return Collections.emptyMap();
+        return Collections.unmodifiableMap(items);
     }
 }
