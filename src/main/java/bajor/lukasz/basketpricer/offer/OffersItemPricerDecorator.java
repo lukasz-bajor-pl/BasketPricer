@@ -19,7 +19,6 @@ public class OffersItemPricerDecorator implements ItemPricer {
 
     @Override
     public BigDecimal getPrice(Item item, long quantity) {
-        //return subPricer.getPrice(item, quantity);
-        return null;
+        return subPricer.getPrice(item, quantity);
     }
 }
