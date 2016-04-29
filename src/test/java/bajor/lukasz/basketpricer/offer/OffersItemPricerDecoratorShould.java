@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import static bajor.lukasz.basketpricer.Item.Apple;
+import static bajor.lukasz.basketpricer.Item.Banana;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
@@ -57,7 +58,7 @@ public class OffersItemPricerDecoratorShould {
         }, new SimpleItemPricer());
 
         int bananasQuantity = 3;
-        Assert.assertThat(withOffersPricer.getPrice(Item.Banana, bananasQuantity), CoreMatchers.equalTo(Item.Banana.price.multiply(new BigDecimal(bananasQuantity))));
+        assertThat(withOffersPricer.getPrice(Banana, bananasQuantity), equalTo(Banana.price.multiply(new BigDecimal(bananasQuantity))));
     }
 
     @Test
