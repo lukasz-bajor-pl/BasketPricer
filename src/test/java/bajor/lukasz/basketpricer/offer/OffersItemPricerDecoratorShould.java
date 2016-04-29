@@ -1,7 +1,10 @@
 package bajor.lukasz.basketpricer.offer;
 
+import bajor.lukasz.basketpricer.Item;
 import bajor.lukasz.basketpricer.ItemPricer;
 import bajor.lukasz.basketpricer.SimpleItemPricer;
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -43,5 +46,17 @@ public class OffersItemPricerDecoratorShould {
         }, new SimpleItemPricer());
 
         assertThat(withOffersPricer.getPrice(Apple, 3), equalTo(Apple.price.multiply(new BigDecimal(2))));
+    }
+
+    @Test
+    public void applyOnlyOfferForThisItem() {
+        withOffersPricer = new OffersItemPricerDecorator(new HashSet<Offer>() {
+            {
+                add(new BulkBuyOffer(Apple, 2, 1));
+            }
+        }, new SimpleItemPricer());
+
+        int bananasQuantity = 3;
+        Assert.assertThat(withOffersPricer.getPrice(Item.Banana, bananasQuantity), CoreMatchers.equalTo(Item.Banana.price.multiply(new BigDecimal(bananasQuantity))));
     }
 }
