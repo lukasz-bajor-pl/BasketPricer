@@ -10,5 +10,5 @@ import java.math.BigDecimal;
 public interface Offer {
     Item getItem();
     long getQuantityRequired();
-    BigDecimal getPrice();
+    BigDecimal getDiscount();
 }
