@@ -59,4 +59,15 @@ public class OffersItemPricerDecoratorShould {
         int bananasQuantity = 3;
         Assert.assertThat(withOffersPricer.getPrice(Item.Banana, bananasQuantity), CoreMatchers.equalTo(Item.Banana.price.multiply(new BigDecimal(bananasQuantity))));
     }
+
+    @Test
+    public void applyOfferMoreThanOnceIfPossible() {
+        withOffersPricer = new OffersItemPricerDecorator(new HashSet<Offer>() {
+            {
+                add(new BulkBuyOffer(Apple, 2, 1));
+            }
+        }, new SimpleItemPricer());
+
+        assertThat(withOffersPricer.getPrice(Apple, 6), equalTo(Apple.price.multiply(new BigDecimal(3))));
+    }
 }

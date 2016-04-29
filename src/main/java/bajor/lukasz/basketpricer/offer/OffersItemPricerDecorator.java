@@ -23,7 +23,7 @@ public class OffersItemPricerDecorator implements ItemPricer {
 
     @Override
     public BigDecimal getPrice(Item item, long quantity) {
-        BigDecimal basePrice = subPricer.getPrice(item, quantity);
+        final BigDecimal basePrice = subPricer.getPrice(item, quantity);
 
         if (offers.isEmpty()) {
             return basePrice;
@@ -35,6 +35,15 @@ public class OffersItemPricerDecorator implements ItemPricer {
             return basePrice;
         }
 
-        return basePrice.subtract(offersForItem.get(0).getDiscount());
+        long currentQuantity = quantity;
+        final Offer o = offersForItem.get(0);
+        BigDecimal finalPrice = basePrice;
+
+        do {
+            finalPrice = finalPrice.subtract(o.getDiscount());
+            currentQuantity -= o.getQuantityRequired();
+        } while(currentQuantity >= o.getQuantityRequired());
+
+        return finalPrice;
     }
 }

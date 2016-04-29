@@ -23,6 +23,7 @@ public class BasketPricerIntegrationTest {
 
         assertEquals(Item.Apple.price.multiply(new BigDecimal(2)).add(Item.Banana.price), basketPricer.getPrice(b));
     }
+
     @Test
     public void shouldCalculatePricesOfBasketIncludingOffers() {
         ItemPricer pricer = new OffersItemPricerDecorator(new HashSet<Offer>() {
@@ -35,6 +36,6 @@ public class BasketPricerIntegrationTest {
 
         Basket b = new BasketImpl(Item.Apple, Item.Melon, Item.Melon, Item.Melon, Item.Melon, Item.Melon, Item.Lime, Item.Lime, Item.Lime);
 
-        assertEquals(Item.Apple.price.add(Item.Melon.price.multiply(new BigDecimal(2))).add(Item.Lime.price.multiply(new BigDecimal(2))), basketPricer.getPrice(b));
+        assertEquals(Item.Apple.price.add(Item.Melon.price.multiply(new BigDecimal(3))).add(Item.Lime.price.multiply(new BigDecimal(2))), basketPricer.getPrice(b));
     }
 }
