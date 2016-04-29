@@ -4,7 +4,9 @@ import bajor.lukasz.basketpricer.Item;
 import bajor.lukasz.basketpricer.ItemPricer;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by lbajor on 2016-04-27.
@@ -27,7 +29,12 @@ public class OffersItemPricerDecorator implements ItemPricer {
             return basePrice;
         }
 
-        Offer offer = offers.iterator().next();
-        return basePrice.subtract(offer.getDiscount());
+        final List<Offer> offersForItem = offers.stream().filter(o -> o.getItem().equals(item)).collect(Collectors.toList());
+
+        if (offersForItem.isEmpty()) {
+            return basePrice;
+        }
+
+        return basePrice.subtract(offersForItem.get(0).getDiscount());
     }
 }
